@@ -1,0 +1,13 @@
+# Ros things to ignore
+**/install/
+**/build/
+**/log/
+
+# Python stuff to ignore
+__pycache__
+*.pyc
+
+# Ignore gazebo models from fuel (mounted to this folder in docker-compose)
+gazebo_init/*
+!gazebo_init/README.md
+
