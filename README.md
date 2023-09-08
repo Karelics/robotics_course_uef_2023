@@ -193,6 +193,7 @@ ros2 launch turtlebot4_ignition_bringup turtlebot4_ignition.launch.py slam:=true
 
 - https://github.com/turtlebot/turtlebot4/tree/humble
 - https://github.com/turtlebot/turtlebot4_simulator
+- https://turtlebot.github.io/turtlebot4-user-manual/overview/features.html
 
 
 
