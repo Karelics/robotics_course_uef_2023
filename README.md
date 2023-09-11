@@ -59,6 +59,25 @@ xhost +local:`docker inspect --format='{{ .Config.Hostname }}' turtlebot`
 
 ```
 
+----
+Running on windows
+
+WSL2 must be installed (should be by defaul on windows 11)
+
+[Install XLaunch to allow usage of Gui](https://medium.com/@potatowagon/how-to-use-gui-apps-in-linux-docker-container-from-windows-host-485d3e1c64a3)
+
+Run ipconfig and set your local network IP adderes to the `docker-compose.yml` replacing `<IP>`
+
+Start XLaunch (VcXsrv Windows X Server)
+
+Press next until you get to Extra settings tab
+
+Deselect Native opengl
+
+Select Disable access control
+
+----
+
 #### Simplest possible run command from command line:
 
 ``` bash

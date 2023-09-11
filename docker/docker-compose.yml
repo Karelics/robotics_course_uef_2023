@@ -1,20 +1,27 @@
-version: "2.4"
+version: "3"
 
 services:
   turtlebot:
     image: turtlebot:latest
     container_name: turtlebot
     network_mode: host
-    runtime: nvidia
     privileged: true
     stdin_open: true
     tty: true
     environment:
-      ROS_DOMAIN_ID: ${ROS_DOMAIN_ID}
-      QT_X11_NO_MITSHM: "1"
-      DISPLAY: ${DISPLAY}
+      - ROS_DOMAIN_ID=1
+      - QT_X11_NO_MITSHM=1
+      # - DISPLAY=<IP>:0.0  # Windows
+      - DISPLAY=:0               # Ubuntu
     volumes:
       - /tmp/.X11-unix:/tmp/.X11-unix
       - ${WS_PATH}/ros2_ws/src:/workspaces/ros2_ws/src
       - ${WS_PATH}/gazebo_init:/root/.ignition
     command: bash
+    # deploy:
+    #   resources:
+    #     reservations:
+    #       devices:
+    #         - driver: nvidia
+    #           count: 1
+    #           capabilities: [gpu]

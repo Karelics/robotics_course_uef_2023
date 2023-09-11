@@ -32,6 +32,7 @@ RUN apt-get update && \
     lsb-release \
     python3-pip \
     iputils-ping \
+    net-tools \
     htop \
     software-properties-common \
     && apt-get clean && \
@@ -91,7 +92,7 @@ RUN echo ". /opt/ros/humble/setup.bash" >> ~/.bashrc && \
 # Fix autocompletion
 RUN echo 'eval "$(register-python-argcomplete3 colcon)"' >> /opt/ros/humble/setup.sh
 
-COPY docker/ros_entrypoint.sh /ros_entrypoint.sh
-ENTRYPOINT ["/ros_entrypoint.sh"]
+# COPY docker/ros_entrypoint.sh /ros_entrypoint.sh
+# ENTRYPOINT ["/ros_entrypoint.sh"]
 
 CMD ["bash"]
