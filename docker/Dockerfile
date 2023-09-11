@@ -61,6 +61,7 @@ RUN apt-get update && \
     apt-get install -y --no-install-recommends \
     ignition-fortress \
     ros-humble-turtlebot4-simulator \
+    ros-humble-turtlesim \
     && apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 

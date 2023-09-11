@@ -1,26 +1,15 @@
 # Base for robotics course
 
 
-``` bash
-xhost +local:`docker inspect --format='{{ .Config.Hostname }}' turtlebot`
-```
 
-nvidia-docker2
+## Prerequisites
 
-
-
-
-
+- [Docker / Docker Desktop](https://docs.docker.com/desktop/)
+- [Docker compose](https://docs.docker.com/compose/install/) (included in the docker desktop?)
+- If on ubuntu with Nvidia GPU: [Nvidia-docker2](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/install-guide.html#setting-up-nvidia-container-toolkit)
 
 
 ## Docker
-
-### Installation
-Docker Desktop maybe?
-
-
-[Nvidia-docker2](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/install-guide.html#setting-up-nvidia-container-toolkit)
-
 
 
 ### Building the image
@@ -63,6 +52,12 @@ VPN may cause issues. `--network=host` fixes the issue but is not the safest way
 ### Running the container(s)
 
 There are two ways to run your image. Straight from command line or with the help of docker-compose.
+
+Ubuntu: To enable usage of the GUI
+``` bash
+xhost +local:`docker inspect --format='{{ .Config.Hostname }}' turtlebot`
+
+```
 
 #### Simplest possible run command from command line:
 
