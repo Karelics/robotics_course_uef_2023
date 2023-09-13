@@ -60,21 +60,21 @@ xhost +local:`docker inspect --format='{{ .Config.Hostname }}' turtlebot`
 ```
 
 ----
-Running on windows
+## Running on windows
 
-WSL2 must be installed (should be by defaul on windows 11)
+* WSL2 must be installed (should be by default on Windows 11).
 
-[Install XLaunch to allow usage of Gui](https://medium.com/@potatowagon/how-to-use-gui-apps-in-linux-docker-container-from-windows-host-485d3e1c64a3)
+* [Install XLaunch to allow usage of Gui](https://medium.com/@potatowagon/how-to-use-gui-apps-in-linux-docker-container-from-windows-host-485d3e1c64a3).
 
-Run ipconfig and set your local network IP adderes to the `docker-compose.yml` replacing `<IP>`
+* Run ipconfig on your host windows machine and set your local network IP address to the `docker-compose.yml` replacing the `<IP>` part with the one you find there. `ipconfig` will give you more options. Try out the values corresponding to the `IP V4 Address` fields under the following sections: `Wireless LAN Adapter Wi-Fi`, `Ethernet adapter vEthernet (Default Switch)`, `Ethernet adapter vEthernet (WSL)`.
 
-Start XLaunch (VcXsrv Windows X Server)
+* Start XLaunch (VcXsrv Windows X Server).
 
-Press next until you get to Extra settings tab
+* Press next until you get to the `Extra settings` tab.
 
-Deselect Native opengl
+* Deselect the option `Native OpenGL`.
 
-Select Disable access control
+* Select `Disable access control`.
 
 ----
 
@@ -193,26 +193,22 @@ Sometimes you might run into situation where docker complains that the container
 
 ### Turtlebot simulation launch
 
+1. Launch the turtlebot_sim with Gazebo Ignite and the basic `maze` world:
 ``` bash
 ros2 launch turtlebot4_ignition_bringup turtlebot4_ignition.launch.py world:=maze
 ```
 
-
+2. Launch the turtlebot_sim with Gazebo Ignite, in mapping mode:
 ``` bash
 ros2 launch turtlebot4_ignition_bringup turtlebot4_ignition.launch.py slam:=true nav:=true world:=maze
 ```
 
-
-
-
-- https://github.com/turtlebot/turtlebot4/tree/humble
-- https://github.com/turtlebot/turtlebot4_simulator
-- https://turtlebot.github.io/turtlebot4-user-manual/overview/features.html
-
-
-
+3. Launch the turtlebot_sim with Gazebo Ignite, in localization mode, with Rviz:
 ``` bash
 ros2 launch turtlebot4_ignition_bringup turtlebot4_ignition.launch.py nav2:=true world:=maze map:=/maze.yaml localization:=true rviz:=true
 ```
 
-
+#### Resources:
+- https://github.com/turtlebot/turtlebot4/tree/humble
+- https://github.com/turtlebot/turtlebot4_simulator
+- https://turtlebot.github.io/turtlebot4-user-manual/overview/features.html
