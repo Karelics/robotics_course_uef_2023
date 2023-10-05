@@ -86,7 +86,7 @@ RUN cd ${ROS2_WS} && \
 
 # Source ros and the workspace(s) automatically when new terminal is opened
 RUN echo ". /opt/ros/humble/setup.bash" >> ~/.bashrc && \
-    echo ". ${ROS_WS}/install/setup.bash" >> ~/.bashrc && \
+    echo ". ${ROS2_WS}/install/setup.bash" >> ~/.bashrc && \
     echo ". ${TB_WS}/install/setup.bash" >> ~/.bashrc
 
 # Fix autocompletion
